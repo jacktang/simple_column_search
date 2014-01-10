@@ -29,7 +29,7 @@ module SimpleColumnSearch
 
     # PostgreSQL LIKE is case-sensitive, use ILIKE for case-insensitive
     like = connection.adapter_name == "PostgreSQL" ? "ILIKE" : "LIKE"
-    # Determine if ActiveRecord 3 And ActiveRecord 4
+    # Retention ActiveRecord 3
     scope options[:name], lambda { |terms|
       terms = options[:escape].call(terms) if options[:escape]
       conditions = terms.split.inject(where(nil)) do |acc, term|
